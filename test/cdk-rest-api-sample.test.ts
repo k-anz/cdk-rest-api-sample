@@ -1,11 +1,11 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as CdkRestApiSample from '../lib/cdk-rest-api-sample-stack';
+import * as CdkRestApiSample from '../lib/rest-api-stack';
 
 test('Empty Stack', () => {
     const app = new cdk.App();
     // WHEN
-    const stack = new CdkRestApiSample.CdkRestApiSampleStack(app, 'MyTestStack');
+    const stack = new CdkRestApiSample.RestApiStack(app, 'MyTestStack');
     // THEN
     expectCDK(stack).to(matchTemplate({
       "Resources": {}
