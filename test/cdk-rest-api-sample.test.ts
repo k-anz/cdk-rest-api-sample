@@ -1,13 +1,11 @@
-import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
+import { expect as expectCDK, matchTemplate, MatchStyle, haveResource } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as CdkRestApiSample from '../lib/rest-api-stack';
+import { RestApiStack } from '../lib/rest-api-stack';
 
-test('Empty Stack', () => {
+test('RestApiStack', () => {
     const app = new cdk.App();
     // WHEN
-    const stack = new CdkRestApiSample.RestApiStack(app, 'MyTestStack');
+    const stack = new RestApiStack(app, 'MyTestStack');
     // THEN
-    expectCDK(stack).to(matchTemplate({
-      "Resources": {}
-    }, MatchStyle.EXACT))
+    expectCDK(stack).to(haveResource('AWS::Lambda::Function'));
 });
