@@ -15,11 +15,11 @@ jobs:
       - name: Setup dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Test
-        run: yarn test
-
       - name: Build
         run: yarn build
+
+      - name: Test
+        run: yarn test
 
       - name: cdk diff
         run: npx cdk diff || true
