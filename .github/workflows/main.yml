@@ -40,7 +40,7 @@ jobs:
     needs: before_deploy
     steps:
       - name: cdk deploy
-        run: npx cdk deploy --require-approval never
+        run: npx cdk deploy --require-approval never *Stack
         if: github.ref == 'refs/heads/master'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
